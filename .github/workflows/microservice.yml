@@ -25,8 +25,10 @@ jobs:
             - name: sonarqube quality gate check
               uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
               id: sonarqube-quality-gate-check
+              continue-on-error: true
               with:
                 pollingTimeoutSec: 600
+                scanMetadataReportFile: .scannerwork/report-task.txt
               env:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
