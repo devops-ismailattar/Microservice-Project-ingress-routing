@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: loginapp
-          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/loginapp:9464053374829a79347140becef732d6703e07d2
+          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/loginapp:71da86ad97dd0a6aed681a2181bbad29cb4ae80a
           imagePullPolicy: Always
           ports:
             - containerPort: 3001
