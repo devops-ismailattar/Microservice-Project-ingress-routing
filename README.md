@@ -1,4 +1,3 @@
-# Microservice-Project-ingress-routing
 
 # Microservice Project with Ingress Routing
 
