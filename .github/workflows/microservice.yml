@@ -12,17 +12,8 @@ jobs:
                 node-version: 24
             - name: install dependecies
               run: |
-                cd cart-app/cart-app
-                npm init -y
-                npm install
-                ls -l 
-                cd ../../cd login-app/login-app
-                npm init -y
-                npm install
-                ls -l 
-                cd ../../payment-app/payment-app
-                npm init -y
-                npm install
-                ls -l 
+                cd "cart-app/cart-app" && npm install
+                cd "cart-app/login-app" && npm install
+                cd "cart-app/payment-app" && npm install
 
 
