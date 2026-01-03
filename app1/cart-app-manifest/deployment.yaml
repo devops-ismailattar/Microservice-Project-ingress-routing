@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cartapp
-          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/cartapp:latest
+          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/cartapp:67013c2f8e2330ec51629b152832b7c25e9cc65e
           imagePullPolicy: Always
           ports:
             - containerPort: 3002
