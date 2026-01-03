@@ -58,23 +58,54 @@ jobs:
               with:
                 name: cart-app
                 path: app1/cart-app/
-            - run: |
-                ls -l app1/cart-app
 
             - name: dowload artifact
               uses: actions/download-artifact@v7.0.0
               with:
                 name: login-app
                 path: app2/login-app/
-            - run: |
-                ls -l app2/login-app/
             - name: dowload artifact
               uses: actions/download-artifact@v7.0.0
               with:
                 name: payment-app
                 path: app3/payment-app/
-            - run: |
-                ls -l app3/payment-app
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v5.1.1
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: ap-south-1
+            - name: login to ECR
+              uses: docker/login-action@v3.6.0
+              with:
+                registry: 076226033208.dkr.ecr.ap-south-1.amazonaws.com
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Build and push cart docker image 
+              uses: docker/build-push-action@v6
+              with:
+                context: app1/cart-app/.
+                push: true
+                tags: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/cartapp:${{ github.sha }}
+
+            - name: Build and push login docker image 
+              uses: docker/build-push-action@v6
+              with:
+                context: app2/login-app/.
+                push: true
+                tags: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/loginapp:${{ github.sha }}
+
+            - name: Build and push payment docker image 
+              uses: docker/build-push-action@v6
+              with:
+                context: app3/payment-app/.
+                push: true
+                tags: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/paymentapp:${{ github.sha }}
+            
+
 
 
 
