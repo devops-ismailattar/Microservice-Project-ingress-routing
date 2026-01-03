@@ -1,73 +1,128 @@
 const express = require("express");
 const app = express();
 
-// Serve static files like CSS
+// Serve static files (future use)
 app.use(express.static("public"));
 
 const page = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cart Service</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
       margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #0073e6;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    main {
-      padding: 30px;
-      text-align: center;
-    }
-    h1 {
-      color: #0073e6;
-    }
-    p {
-      font-size: 18px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: #333;
     }
-    button {
-      padding: 10px 20px;
+
+    header {
+      background: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #4a47a3;
+    }
+
+    header span {
+      font-size: 14px;
+      color: #666;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 140px);
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      width: 350px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .card h2 {
+      color: #4a47a3;
+      margin-bottom: 10px;
+    }
+
+    .card p {
       font-size: 16px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #28a745, #20c997);
       color: white;
-      background-color: #28a745;
       border: none;
-      border-radius: 5px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 25px;
       cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    button:hover {
-      background-color: #218838;
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
+
     footer {
-      margin-top: 50px;
+      background: #ffffff;
+      text-align: center;
+      padding: 15px;
       font-size: 14px;
       color: #777;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Cart Service</h1>
+    <h1>🛒 Cart Service</h1>
+    <span>Developed by Ismail Attar</span>
   </header>
+
   <main>
-    <p>Items added to your cart successfully!</p>
-    <a href="/payment">
-      <button>Proceed to Payment</button>
-    </a>
+    <div class="card">
+      <h2>Items Added Successfully ✅</h2>
+      <p>Your selected products are safely added to the cart.</p>
+      <a href="/payment">
+        <button class="btn">Proceed to Payment</button>
+      </a>
+    </div>
   </main>
+
   <footer>
-    &copy; 2026 My E-Commerce App
+    © 2026 E-Commerce Microservices | Created by Ismail Attar
   </footer>
 </body>
 </html>
@@ -77,7 +132,5 @@ app.get("/", (req, res) => res.send(page));
 app.get("/cart", (req, res) => res.send(page));
 
 app.listen(3002, () => {
-  console.log("Cart app running on port 3002");
+  console.log("🛒 Cart app running on port 3002");
 });
-
-
