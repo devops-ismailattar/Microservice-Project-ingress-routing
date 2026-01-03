@@ -13,8 +13,8 @@ jobs:
             - name: install dependecies
               run: |
                 cd "cart-app/cart-app" && npm install
-                cd "cart-app/login-app" && npm install
-                cd "cart-app/payment-app" && npm install
-                ls cart-app/payment-app
+                cd "login-app/login-app" && npm install
+                cd "payment-app/payment-app" && npm install
+                ls payment-app/payment-app
 
 
