@@ -12,9 +12,9 @@ jobs:
                 node-version: 24
             - name: install dependecies
               run: |
-                cd "cart-app/cart-app" && npm install
-                cd "login-app/login-app" && npm install
-                cd "payment-app/payment-app" && npm install
-                ls payment-app/payment-app
+                cd "cart-app/cart-app" && npm install && ls
+                cd "../login-app" && npm install && ls
+                cd "../payment-app" && npm install && ls
+                
 
 
