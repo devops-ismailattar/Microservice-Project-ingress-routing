@@ -15,5 +15,6 @@ jobs:
                 cd "cart-app/cart-app" && npm install
                 cd "cart-app/login-app" && npm install
                 cd "cart-app/payment-app" && npm install
+                ls cart-app/payment-app
 
 
