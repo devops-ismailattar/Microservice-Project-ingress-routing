@@ -124,6 +124,15 @@ jobs:
                 git add app1 app2 app3
                 git commit -m "Update image tags to ${{ github.sha }}"
                 git push origin main
+                git fetch origin
+                git checkout argocd
+                sed -i "s|image:.*|image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/cartapp:${{ github.sha }}|" app1/cart-app-manifest/deployment.yaml
+                sed -i "s|image:.*|image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/loginapp:${{ github.sha }}|" app2/login-app-manifest/deployment.yaml
+                sed -i "s|image:.*|image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/paymentapp:${{ github.sha }}|" app3/payment-app-manifest/deployment.yaml
+                git add app1 app2 app3
+                git commit -m "Update image tags to ${{ github.sha }}"
+                git push origin argocd
+
                 
 
             
