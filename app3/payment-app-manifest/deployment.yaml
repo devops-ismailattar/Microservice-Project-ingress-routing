@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: paymentapp
-          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/paymentapp:f7f6880dc26ad5e8d0ff8803f598e626221559ee
+          image: 076226033208.dkr.ecr.ap-south-1.amazonaws.com/paymentapp:c2141e858c7d56a42d96f5afe0426a7d1ded1a7d
           imagePullPolicy: Always
           ports:
             - containerPort: 3003
