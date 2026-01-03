@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: loginapp
+  namespace: microservices
   labels:
     app: loginapp
 spec:
@@ -23,6 +24,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
+namespace: microservices
 metadata:
   name: loginapp-service
 spec:
